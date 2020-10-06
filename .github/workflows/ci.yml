@@ -1,0 +1,121 @@
+name: CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: Git Ref (Optional)
+        required: false
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+    types: [opened, edited, reopened, synchronize]
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x]
+    steps:
+      - name: Checkout (Latest)
+        if: github.event.inputs.git-ref == ''
+        uses: actions/checkout@v2
+      - name: Checkout (Custom Ref)
+        if: github.event.inputs.git-ref != ''
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.git-ref }}
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2.1.1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Dependencies
+        run: npm ci
+      - name: Test
+        run: npm test
+      - name: Upload Test Artifacts - coverage/
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-${{ matrix.node-version }}
+          path: ${{ github.workspace }}/coverage/
+      - name: Upload Test Coverage - Codecov
+        if: ${{ always() }}
+        uses: codecov/codecov-action@v1.0.13
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Build
+        run: npm run build
+      - name: Test E2E
+        run: npm run test:e2e:docker
+      - name: Upload Test E2E Artifacts - cypress/videos/
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-videos-${{ matrix.node-version }}
+          path: ${{ github.workspace }}/cypress/videos/
+      - name: Upload Test E2E Artifacts - cypress/screenshots/
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-screenshots-${{ matrix.node-version }}
+          path: ${{ github.workspace }}/cypress/screenshots/
+      - name: Test Visual
+        run: npm run test:visual:docker
+      - name: Compress Test Visual Artifacts
+        if: ${{ always() }}
+        run: |
+          find . -name '__diff_output__' | tar -cvjf tests-visual-job-artifacts.tar.bz2 --files-from -
+      - name: Upload Test Visual Artifacts - tests-visual-job-artifacts.tar.bz2
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: tests-visual-job-artifacts.tar.bz2-${{ matrix.node-version }}
+          path: ${{ github.workspace }}/tests-visual-job-artifacts.tar.bz2
+      - name: Upload Build Artifacts - public/
+        uses: actions/upload-artifact@v2
+        with:
+          name: public-${{ matrix.node-version }}
+          path: ${{ github.workspace }}/public/
+  deploy:
+    name: Deploy
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (Latest)
+        if: github.event.inputs.git-ref == ''
+        uses: actions/checkout@v2
+      - name: Checkout (Custom Ref)
+        if: github.event.inputs.git-ref != ''
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.git-ref }}
+      - name: Setup Node.js 12.x
+        uses: actions/setup-node@v2.1.1
+        with:
+          node-version: 12.x
+      - name: Install Dependencies
+        run: npm ci
+      - name: Create Artifact Directories
+        run: |
+          mkdir -p ${{ github.workspace }}/public
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: public-12.x
+          path: ${{ github.workspace }}/public
+      - name: Deploy PREVIEW
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          if [[ -n ${NETLIFY_SITE_ID} && -n ${NETLIFY_AUTH_TOKEN} ]] ; then
+            npm run deploy:preview
+          fi

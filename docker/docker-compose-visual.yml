@@ -1,0 +1,29 @@
+version: "2.4"
+services:
+  storybook:
+    build:
+      context: ..
+      dockerfile: test.Dockerfile
+      target: storybook
+    command: sh -c "
+      npm run build &&
+      npm run storybook
+      "
+    ports:
+      - "6006:6006"
+  jest:
+    build:
+      context: ..
+      dockerfile: test.Dockerfile
+      target: cypress
+    command: /opt/node_app/app/docker/wait-for-it.sh storybook:6006 --timeout=0 -- npm run jest:visual
+    volumes:
+      - ..:/opt/node_app/app:delegated
+      - notused:/opt/node_app/app/node_modules
+    environment:
+      - STORYBOOK_HOST=storybook
+    depends_on:
+      - storybook
+
+volumes:
+  notused:

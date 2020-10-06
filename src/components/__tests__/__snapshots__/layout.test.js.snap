@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout Snapshots matches snapshot 1`] = `
+<div>
+  <header
+    style="background: rebeccapurple; margin-bottom: 1.45rem;"
+  >
+    <div
+      style="margin: 0px auto; max-width: 960px; padding: 1.45rem 1.0875rem;"
+    >
+      <h1
+        style="margin: 0px; font-weight: bold;"
+      >
+        <a
+          href="/"
+          style="color: white; text-decoration: none;"
+        >
+          Gatsby Testing Starter
+        </a>
+      </h1>
+    </div>
+  </header>
+  <div
+    style="margin: 0px auto; max-width: 960px; padding: 0px 1.0875rem 1.45rem;"
+  >
+    <main>
+      <main>
+        <h1>
+          Hello World
+        </h1>
+      </main>
+    </main>
+    <footer>
+      © 
+      2020
+      , Built with
+       
+      <a
+        href="https://www.gatsbyjs.org"
+      >
+        Gatsby
+      </a>
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`PureLayout Snapshots matches snapshot 1`] = `
+<div>
+  <header
+    style="background: rebeccapurple; margin-bottom: 1.45rem;"
+  >
+    <div
+      style="margin: 0px auto; max-width: 960px; padding: 1.45rem 1.0875rem;"
+    >
+      <h1
+        style="margin: 0px; font-weight: bold;"
+      >
+        <a
+          href="/"
+          style="color: white; text-decoration: none;"
+        >
+          Gatsby Testing Starter
+        </a>
+      </h1>
+    </div>
+  </header>
+  <div
+    style="margin: 0px auto; max-width: 960px; padding: 0px 1.0875rem 1.45rem;"
+  >
+    <main>
+      <main>
+        <h1>
+          Hello World
+        </h1>
+      </main>
+    </main>
+    <footer>
+      © 
+      2020
+      , Built with
+       
+      <a
+        href="https://www.gatsbyjs.org"
+      >
+        Gatsby
+      </a>
+    </footer>
+  </div>
+</div>
+`;

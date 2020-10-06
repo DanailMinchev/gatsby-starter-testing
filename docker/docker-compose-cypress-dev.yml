@@ -1,0 +1,20 @@
+version: "2.4"
+services:
+  app:
+    build:
+      args:
+        - NODE_ENV=development
+    command: npm run develop
+    ports:
+      - "9229:9229"
+    volumes:
+      - ..:/opt/node_app/app:delegated
+      - notused:/opt/node_app/app/node_modules
+    environment:
+      - NODE_ENV=development
+  cypress:
+    command: /opt/node_app/app/docker/wait-for-it.sh app.local:8000 --timeout=0 -- cypress open
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY

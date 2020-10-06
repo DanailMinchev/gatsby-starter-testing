@@ -1,0 +1,4 @@
+version: "2.4"
+services:
+  jest:
+    command: /opt/node_app/app/docker/wait-for-it.sh storybook:6006 --timeout=0 -- npm run jest:visual:update

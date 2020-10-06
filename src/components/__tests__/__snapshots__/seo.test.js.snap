@@ -1,0 +1,213 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PureSEO renders meta tags 1`] = `
+<head>
+  <title>
+    Title here ... | Gatsby Testing Starter
+  </title>
+  <meta
+    content="Description here ..."
+    data-react-helmet="true"
+    name="description"
+  />
+  <meta
+    content="Title here ..."
+    data-react-helmet="true"
+    property="og:title"
+  />
+  <meta
+    content="Description here ..."
+    data-react-helmet="true"
+    property="og:description"
+  />
+  <meta
+    content="website"
+    data-react-helmet="true"
+    property="og:type"
+  />
+  <meta
+    content="summary"
+    data-react-helmet="true"
+    name="twitter:card"
+  />
+  <meta
+    content="@DanailMinchev"
+    data-react-helmet="true"
+    name="twitter:creator"
+  />
+  <meta
+    content="Title here ..."
+    data-react-helmet="true"
+    name="twitter:title"
+  />
+  <meta
+    content="Description here ..."
+    data-react-helmet="true"
+    name="twitter:description"
+  />
+  <meta
+    content="content here ..."
+    data-react-helmet="true"
+    name="name_here"
+  />
+  <meta
+    content="content here ..."
+    data-react-helmet="true"
+    property="property:here"
+  />
+</head>
+`;
+
+exports[`PureSEO renders meta tags with defaults 1`] = `
+<head>
+  <title>
+    Hello World | Gatsby Testing Starter
+  </title>
+  <meta
+    content="A simple starter with configured testing"
+    data-react-helmet="true"
+    name="description"
+  />
+  <meta
+    content="Hello World"
+    data-react-helmet="true"
+    property="og:title"
+  />
+  <meta
+    content="A simple starter with configured testing"
+    data-react-helmet="true"
+    property="og:description"
+  />
+  <meta
+    content="website"
+    data-react-helmet="true"
+    property="og:type"
+  />
+  <meta
+    content="summary"
+    data-react-helmet="true"
+    name="twitter:card"
+  />
+  <meta
+    content="@DanailMinchev"
+    data-react-helmet="true"
+    name="twitter:creator"
+  />
+  <meta
+    content="Hello World"
+    data-react-helmet="true"
+    name="twitter:title"
+  />
+  <meta
+    content="A simple starter with configured testing"
+    data-react-helmet="true"
+    name="twitter:description"
+  />
+</head>
+`;
+
+exports[`SEO renders meta tags 1`] = `
+<head>
+  <title>
+    Title here ... | Gatsby Testing Starter
+  </title>
+  <meta
+    content="Description here ..."
+    data-react-helmet="true"
+    name="description"
+  />
+  <meta
+    content="Title here ..."
+    data-react-helmet="true"
+    property="og:title"
+  />
+  <meta
+    content="Description here ..."
+    data-react-helmet="true"
+    property="og:description"
+  />
+  <meta
+    content="website"
+    data-react-helmet="true"
+    property="og:type"
+  />
+  <meta
+    content="summary"
+    data-react-helmet="true"
+    name="twitter:card"
+  />
+  <meta
+    content="@DanailMinchev"
+    data-react-helmet="true"
+    name="twitter:creator"
+  />
+  <meta
+    content="Title here ..."
+    data-react-helmet="true"
+    name="twitter:title"
+  />
+  <meta
+    content="Description here ..."
+    data-react-helmet="true"
+    name="twitter:description"
+  />
+  <meta
+    content="content here ..."
+    data-react-helmet="true"
+    name="name_here"
+  />
+  <meta
+    content="content here ..."
+    data-react-helmet="true"
+    property="property:here"
+  />
+</head>
+`;
+
+exports[`SEO renders meta tags with defaults 1`] = `
+<head>
+  <title>
+    Hello World | Gatsby Testing Starter
+  </title>
+  <meta
+    content="A simple starter with configured testing"
+    data-react-helmet="true"
+    name="description"
+  />
+  <meta
+    content="Hello World"
+    data-react-helmet="true"
+    property="og:title"
+  />
+  <meta
+    content="A simple starter with configured testing"
+    data-react-helmet="true"
+    property="og:description"
+  />
+  <meta
+    content="website"
+    data-react-helmet="true"
+    property="og:type"
+  />
+  <meta
+    content="summary"
+    data-react-helmet="true"
+    name="twitter:card"
+  />
+  <meta
+    content="@DanailMinchev"
+    data-react-helmet="true"
+    name="twitter:creator"
+  />
+  <meta
+    content="Hello World"
+    data-react-helmet="true"
+    name="twitter:title"
+  />
+  <meta
+    content="A simple starter with configured testing"
+    data-react-helmet="true"
+    name="twitter:description"
+  />
+</head>
+`;

@@ -1,0 +1,139 @@
+version: 2.1
+
+parameters:
+  dependency-cache-version:
+    type: string
+    default: v1
+
+executors:
+  default-docker-executor:
+    docker:
+      - image: circleci/node:12.18.3-browsers
+
+jobs:
+  setup-job:
+    executor:
+      name: default-docker-executor
+    working_directory: ~/project
+    steps:
+      - checkout
+      - restore_cache:
+          key: << pipeline.parameters.dependency-cache-version >>-dependency-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: Installing dependencies
+          command: |
+            if [ ! -d node_modules ]; then
+              npm ci
+            fi
+      - save_cache:
+          key: << pipeline.parameters.dependency-cache-version >>-dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - ~/project/node_modules
+            - ~/.cache/Cypress
+  tests-job:
+    executor:
+      name: default-docker-executor
+    working_directory: ~/project
+    steps:
+      - checkout
+      - restore_cache:
+          key: << pipeline.parameters.dependency-cache-version >>-dependency-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: Running tests
+          command: npm test
+      - store_artifacts:
+          path: coverage
+  build-job:
+    executor:
+      name: default-docker-executor
+    working_directory: ~/project
+    steps:
+      - checkout
+      - restore_cache:
+          key: << pipeline.parameters.dependency-cache-version >>-dependency-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: Building project
+          command: npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - public
+  tests-e2e-job:
+    executor:
+      name: default-docker-executor
+    working_directory: ~/project
+    steps:
+      - checkout
+      - restore_cache:
+          key: << pipeline.parameters.dependency-cache-version >>-dependency-cache-{{ checksum "package-lock.json" }}
+      - attach_workspace:
+          at: .
+      - run:
+          name: Running e2e tests
+          command: npm run test:e2e
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
+  tests-visual-job:
+    executor:
+      name: default-docker-executor
+    working_directory: ~/project
+    steps:
+      - checkout
+      - restore_cache:
+          key: << pipeline.parameters.dependency-cache-version >>-dependency-cache-{{ checksum "package-lock.json" }}
+      - attach_workspace:
+          at: .
+      - run:
+          name: Running visual tests
+          command: npm run test:visual
+      - run:
+          name: Compressing Artifacts
+          command: find . -name '__diff_output__' | tar -cvjf tests-visual-job-artifacts.tar.bz2 --files-from -
+          when: always
+      - store_artifacts:
+          path: tests-visual-job-artifacts.tar.bz2
+  deploy-job:
+    executor:
+      name: default-docker-executor
+    working_directory: ~/project
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Deploy to Netlify
+          command: npx netlify-cli deploy --prod --dir=public
+
+workflows:
+  default-workflow:
+    jobs:
+      - setup-job
+      - tests-job:
+          requires:
+            - setup-job
+      - build-job:
+          requires:
+            - setup-job
+            - tests-job
+      - tests-e2e-job:
+          requires:
+            - setup-job
+            - tests-job
+            - build-job
+      - tests-visual-job:
+          requires:
+            - setup-job
+            - tests-job
+            - build-job
+      - deploy-job:
+          requires:
+            - setup-job
+            - tests-job
+            - build-job
+            - tests-e2e-job
+            - tests-visual-job
+          filters:
+            branches:
+              only: master

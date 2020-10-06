@@ -1,0 +1,14 @@
+version: "2.4"
+services:
+  app:
+    build:
+      args:
+        - NODE_ENV=production
+    command: sh -c "
+      npm run build &&
+      npm run serve
+      "
+    environment:
+      - NODE_ENV=production
+  cypress:
+    command: /opt/node_app/app/docker/wait-for-it.sh app.local:8000 --timeout=0 -- cypress run --browser chrome --headless

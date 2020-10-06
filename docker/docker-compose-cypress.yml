@@ -1,0 +1,43 @@
+version: "2.4"
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: app.Dockerfile
+      args:
+        - NODE_ENV=production
+    command: sh -c "
+      npm run build &&
+      npm run serve
+      "
+    ports:
+      - "8000:8000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      local:
+        aliases:
+          - app.local
+  cypress:
+    build:
+      context: ..
+      dockerfile: test.Dockerfile
+      target: cypress
+    command: /opt/node_app/app/docker/wait-for-it.sh app.local:8000 --timeout=0 -- cypress run --browser chrome --headless
+    volumes:
+      - ..:/opt/node_app/app:delegated
+      - notused:/opt/node_app/app/node_modules
+    environment:
+      - CYPRESS_baseUrl=http://app.local:8000/
+    networks:
+      local:
+        aliases:
+          - cypress.local
+    depends_on:
+      - app
+
+volumes:
+  notused:
+
+networks:
+  local:

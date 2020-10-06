@@ -1,0 +1,15 @@
+[build]
+  # ignore builds, because the build process is managed by CI (GitHub Actions)
+  ignore = "0"
+  base = "./"
+  publish = "public/"
+  command = "npm run skip-build --if-present"
+  functions = "functions/"
+
+[dev]
+  framework = "#custom"
+  command = "npm run develop"
+  targetPort = 8000
+  port = 8888
+  publish = "public/"
+  autoLaunch = true
