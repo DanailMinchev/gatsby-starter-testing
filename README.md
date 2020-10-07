@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.gatsbyjs.org">
+  <a href="https://www.gatsbyjs.com/">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="64" />
   </a>
 </p>
@@ -11,6 +11,10 @@
   <a href="https://github.com/DanailMinchev/gatsby-starter-testing/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Project is released under the MIT license." />
   </a>
+  <a href="https://github.com/DanailMinchev/gatsby-starter-testing/blob/master/CONTRIBUTING.md">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
+  </a>
+  <br />
   <a href="https://github.com/DanailMinchev/gatsby-starter-testing/actions">
     <img src="https://github.com/DanailMinchev/gatsby-starter-testing/workflows/CI/badge.svg?branch=master" alt="GitHub Actions status" />
   </a>
@@ -45,6 +49,17 @@ Kick off your project with this default boilerplate. This starter ships with con
 - Automated Visual Testing:
   - [Storybook](https://storybook.js.org/) with [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer) and [jest-image-snapshot](https://github.com/americanexpress/jest-image-snapshot)
   - [Cypress](https://www.cypress.io/) with [Cypress Image Snapshot](https://github.com/palmerhq/cypress-image-snapshot)
+
+## Contents
+
+- [🚀 Quick start](#-quick-start)
+- [✅ Writing tests](#-writing-tests)
+- [✅ Automated Visual Testing](#-automated-visual-testing)
+- [⚙️ GitHub Actions integration](#%EF%B8%8F-github-actions-integration)
+- [⚙️ Netlify integration](#%EF%B8%8F-netlify-integration)
+- [⚙️ Codecov integration](#%EF%B8%8F-codecov-integration)
+- [⚙️ FOSSA integration](#%EF%B8%8F-fossa-integration)
+- [🧐 What's inside?](#-whats-inside)
 
 ## 🚀 Quick start
 
@@ -283,28 +298,40 @@ Please see following articles:
 - [Running GUI applications using Docker for Mac](https://sourabhbajaj.com/blog/2017/02/07/gui-applications-docker-mac/)
 - [Run Cypress with a single Docker command](https://www.cypress.io/blog/2019/05/02/run-cypress-with-a-single-docker-command/)
 
-## Netlify integration
+## ⚙️ GitHub Actions integration
+
+There are currently 3 GitHub Actions workflows:
+
+- [CI](./.github/workflows/ci.yml)
+  This workflow is acting as CI pipeline.
+
+- [Deploy](./.github/workflows/deploy.yml)
+  This workflow can be used to deploy latest `master` branch or specific commit to Netlify. Use this to deploy to preview, uat, prod.
+
+- [Release](./.github/workflows/release.yml)
+  This workflow can be used to create new release automatically.
+
+  It will run all the tests as in [CI](./.github/workflows/ci.yml) workflow, it will create git release tag, new GitHub release and deploy to Netlify's UAT url.
+
+  Make sure to edit [package.json and repository.url property](https://github.com/DanailMinchev/gatsby-starter-testing/blob/65398ad26afbb0604ae699811a2b5e09632b4099/package.json#L133) so that [semantic-release](https://semantic-release.gitbook.io/) works properly.
+
+## ⚙️ Netlify integration
 
 This app defines Netlify configuration in [netlify.toml](./netlify.toml) file.
 
-Currently, the build and deploy process is done via [GitHub Actions](./.github/workflows/ci.yml) instead of Netlify.
-Netlify is used only to host the resources and not to build and deploy the app.
+Currently, the build and deploy process is done via [GitHub Actions integration](##%EF%B8%8F-github-actions-integration) instead of [Netlify Build](https://www.netlify.com/products/build/).
+
+[Netlify Edge](https://www.netlify.com/products/edge/) is used to host the resources which are build and deployed by [GitHub Actions integration](##%EF%B8%8F-github-actions-integration).
 
 ### Netlify configuration
 
-Connect the repository to Netlify by clicking this button:
-
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/DanailMinchev/gatsby-starter-testing">
-  <img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />
-</a>
-
-or following [Deploy with Git](https://docs.netlify.com/site-deploys/create-deploys/#deploy-with-git) documentation.
+Connect the repository to Netlify by following [Deploy with Git](https://docs.netlify.com/site-deploys/create-deploys/#deploy-with-git) documentation.
 
 You need to stop Netlify builds as described [here](https://docs.netlify.com/configure-builds/stop-or-activate-builds/#stop-builds).
 
 ### Netlify GitHub configuration
 
-You need to configure [GitHub encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) for [GitHub Actions](./.github/workflows/ci.yml) to be able to deploy the content.
+You need to configure [GitHub encrypted secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) for [GitHub Actions](##%EF%B8%8F-github-actions-integration) to be able to deploy the app.
 
 Follow the steps below:
 
@@ -316,13 +343,58 @@ Follow the steps below:
    - `Name`: `NETLIFY_SITE_ID`
    - `Value`: from the Netlify site dashboard, go to `Settings > General > Site details > Site information`, and copy the value. More information [here](https://docs.netlify.com/cli/get-started/#link-with-an-environment-variable).
 
-## FOSSA integration
+### Netlify deployments - GitHub Actions
 
-Please follow [official documentation](https://docs.fossa.com/docs/quick-import)
+Please see [GitHub Actions integration](##%EF%B8%8F-github-actions-integration) section for more information about the available options.
 
-## Codecov integration
+### Netlify deployments - Local machine
 
-Please follow [official documentation](https://docs.codecov.io/docs)
+To set up your local machine with Netlify ([deployments](https://www.netlify.com/products/edge/) and [live dev](https://www.netlify.com/products/dev/)) follow the steps below:
+
+1. Copy [.env.example](./.env.example) file and name it `.env`:
+   ```
+   cp .env.example .env
+   ```
+2. Register a new `Netlify personal access token` as described in [Obtain a token in the Netlify UI](https://docs.netlify.com/cli/get-started/#obtain-a-token-in-the-netlify-ui) document. Copy the value.
+3. Edit the `.env` file and add the token from step 2 to the `NETLIFY_AUTH_TOKEN` variable.
+   ```
+   NETLIFY_AUTH_TOKEN=your-token-value-from-step-2-here
+   ```
+4. From the Netlify site dashboard, go to `Settings > General > Site details > Site information`, and copy the `API ID` value as described in [Link with an environment variable](https://docs.netlify.com/cli/get-started/#link-with-an-environment-variable).
+5. Edit the `.env` file and add the app id value from step 4 to the `NETLIFY_SITE_ID` variable.
+   ```
+   NETLIFY_SITE_ID=your-app-id-value-from-step-4-here
+   ```
+
+Now you should be able to interact with Netlify platform from your local machine.
+
+You can use following npm scripts with Netlify:
+
+- `npm run develop:netlify`
+  This will run local Netlify server on [http://localhost:8888](http://localhost:8888).
+- `npm run develop:netlify:live`
+  This will run local Netlify server with Live Share.
+- `npm run deploy:preview`
+  This will deploy the current local build to Draft url.
+- `npm run deploy:uat`
+  This will deploy the current local build to UAT url.
+- `npm run deploy:prod`
+  This will deploy the current local build to PRODUCTION url.
+
+## ⚙️ Codecov integration
+
+Follow the steps below:
+
+1. Copy the `Upload token` as described in the [documentation](https://docs.codecov.io/docs/about-the-codecov-bash-uploader#upload-token). Copy the value.
+2. Register a new `GitHub encrypted secret` as described in [Creating encrypted secrets for a repository](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository).
+   - `Name`: `CODECOV_TOKEN`
+   - `Value`: the personal access token value from step 1.
+
+You can configure Codecov in [codecov.yml](./codecov.yml) file.
+
+## ⚙️ FOSSA integration
+
+Please follow [official documentation](https://docs.fossa.com/docs/quick-import).
 
 ## 🧐 What's inside?
 
