@@ -99,7 +99,7 @@
     "prettier": "2.1.2",
     "puppeteer": "5.3.1",
     "react-test-renderer": "16.13.1",
-    "semantic-release": "17.1.2",
+    "semantic-release": "17.2.0",
     "start-server-and-test": "1.11.5"
   },
   "husky": {
