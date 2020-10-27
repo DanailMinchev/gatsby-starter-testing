@@ -86,7 +86,7 @@
     "babel-preset-gatsby": "0.5.14",
     "babel-preset-react-app": "9.1.2",
     "cross-env": "7.0.2",
-    "cypress": "5.4.0",
+    "cypress": "5.5.0",
     "cypress-axe": "0.8.1",
     "cypress-image-snapshot": "3.1.1",
     "dotenv-cli": "4.0.0",
