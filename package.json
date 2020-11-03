@@ -57,7 +57,7 @@
     "gatsby-plugin-manifest": "2.4.37",
     "gatsby-plugin-offline": "3.2.38",
     "gatsby-plugin-react-helmet": "3.3.14",
-    "gatsby-plugin-sharp": "2.6.43",
+    "gatsby-plugin-sharp": "2.7.0",
     "gatsby-source-filesystem": "2.3.37",
     "gatsby-transformer-sharp": "2.5.20",
     "is-ci": "2.0.0",
