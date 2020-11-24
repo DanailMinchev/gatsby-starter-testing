@@ -14,8 +14,6 @@ module.exports = (on, config) => {
       launchOptions.args.push("--window-size=1280,720")
       launchOptions.args.push("--force-device-scale-factor=1")
 
-      launchOptions.args.push("--disable-dev-shm-usage")
-
       launchOptions.args.push("--font-render-hinting=none")
 
       launchOptions.args.push("--incognito")
