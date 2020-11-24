@@ -101,7 +101,7 @@
     "puppeteer": "5.4.1",
     "react-test-renderer": "17.0.1",
     "semantic-release": "17.2.2",
-    "start-server-and-test": "1.11.5"
+    "start-server-and-test": "1.11.6"
   },
   "husky": {
     "hooks": {
