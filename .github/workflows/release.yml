@@ -14,10 +14,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup Node.js 15.x
+      - name: Setup Node.js 14.x
         uses: actions/setup-node@v2.1.4
         with:
-          node-version: 15.x
+          node-version: 14.x
       - name: Install Dependencies
         run: npm ci
       - name: Test
@@ -26,7 +26,7 @@ jobs:
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
-          name: coverage-15.x
+          name: coverage-14.x
           path: ${{ github.workspace }}/coverage/
       - name: Upload Test Coverage - Codecov
         if: ${{ always() }}
@@ -41,13 +41,13 @@ jobs:
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
-          name: cypress-videos-15.x
+          name: cypress-videos-14.x
           path: ${{ github.workspace }}/cypress/videos/
       - name: Upload Test E2E Artifacts - cypress/screenshots/
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
-          name: cypress-screenshots-15.x
+          name: cypress-screenshots-14.x
           path: ${{ github.workspace }}/cypress/screenshots/
       - name: Test Visual
         run: npm run test:visual:docker
@@ -59,12 +59,12 @@ jobs:
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
-          name: tests-visual-job-artifacts-15.x.tar.bz2
+          name: tests-visual-job-artifacts-14.x.tar.bz2
           path: ${{ github.workspace }}/tests-visual-job-artifacts.tar.bz2
       - name: Upload Build Artifacts - public/
         uses: actions/upload-artifact@v2
         with:
-          name: public-15.x
+          name: public-14.x
           path: ${{ github.workspace }}/public/
       - name: Release
         env:
