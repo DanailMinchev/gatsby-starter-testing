@@ -52,13 +52,13 @@
     "deploy:prod": "dotenv -- netlify deploy --prod --dir=public --functions=functions --message \"$(git log -1 --pretty=format:\"%h | %s\")\""
   },
   "dependencies": {
-    "gatsby": "2.29.2",
+    "gatsby": "2.29.3",
     "gatsby-image": "2.8.0",
-    "gatsby-plugin-manifest": "2.9.0",
-    "gatsby-plugin-offline": "3.7.0",
+    "gatsby-plugin-manifest": "2.9.1",
+    "gatsby-plugin-offline": "3.7.1",
     "gatsby-plugin-react-helmet": "3.7.0",
-    "gatsby-plugin-sharp": "2.11.1",
-    "gatsby-source-filesystem": "2.8.0",
+    "gatsby-plugin-sharp": "2.11.2",
+    "gatsby-source-filesystem": "2.8.1",
     "gatsby-transformer-sharp": "2.9.0",
     "is-ci": "2.0.0",
     "prop-types": "15.7.2",
@@ -77,7 +77,7 @@
     "@storybook/addons": "6.1.11",
     "@storybook/react": "6.1.11",
     "@testing-library/cypress": "7.0.3",
-    "@testing-library/jest-dom": "5.11.6",
+    "@testing-library/jest-dom": "5.11.8",
     "@testing-library/react": "11.2.2",
     "@testing-library/user-event": "12.6.0",
     "axe-core": "4.1.1",
@@ -86,7 +86,7 @@
     "babel-preset-gatsby": "0.9.1",
     "babel-preset-react-app": "10.0.0",
     "cross-env": "7.0.3",
-    "cypress": "6.2.0",
+    "cypress": "6.2.1",
     "cypress-axe": "0.12.0",
     "cypress-image-snapshot": "4.0.0",
     "dotenv-cli": "4.0.0",
@@ -96,12 +96,12 @@
     "jest-image-snapshot": "4.3.0",
     "jest-puppeteer": "4.4.0",
     "lint-staged": "10.5.3",
-    "netlify-cli": "2.69.11",
+    "netlify-cli": "2.70.0",
     "prettier": "2.2.1",
     "puppeteer": "5.5.0",
     "react-test-renderer": "17.0.1",
-    "semantic-release": "17.3.0",
-    "start-server-and-test": "1.11.6"
+    "semantic-release": "17.3.1",
+    "start-server-and-test": "1.11.7"
   },
   "husky": {
     "hooks": {
