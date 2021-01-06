@@ -109,7 +109,7 @@ Kick off your project with this default boilerplate. This starter ships with con
     npm run build
     ```
 
-    Then, you can run the tests using `test:e2e` which will run in `dev` or `ci` mode depending on machine type:
+    Then, you can run the tests using `test:e2e` which will run in `ci` mode:
 
     ```shell
     npm run test:e2e
@@ -152,7 +152,7 @@ Kick off your project with this default boilerplate. This starter ships with con
 
     To run Cypress in Docker you can use similar commands as in point 4, but append `:docker` in the end.
 
-    You can run the tests using `test:e2e:docker` which will run in `dev` or `ci` mode depending on machine type.
+    You can run the tests using `test:e2e:docker` which will run in `ci` mode.
 
     The `test:e2e:docker` command is working only on macOS and before running it you should run `. docker/setupXQuartz.sh`:
 
@@ -239,7 +239,7 @@ Kick off your project with this default boilerplate. This starter ships with con
 
     ```shell
     cd my-testing-starter/
-    npm run test:e2e
+    npm run test:e2e:dev
     ```
 
     and you can start unit tests in watch mode in another terminal:
