@@ -29,6 +29,7 @@ services:
       - notused:/opt/node_app/app/node_modules
     environment:
       - CYPRESS_baseUrl=http://app.local:8000/
+      - CYPRESS_isDockerEnvironment=true
     networks:
       local:
         aliases:

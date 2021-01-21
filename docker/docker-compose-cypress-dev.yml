@@ -18,3 +18,4 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
     environment:
       - DISPLAY
+      - CYPRESS_isDockerEnvironment=true

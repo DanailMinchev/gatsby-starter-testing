@@ -22,6 +22,8 @@ services:
       - notused:/opt/node_app/app/node_modules
     environment:
       - STORYBOOK_HOST=storybook
+      - CYPRESS_isDockerEnvironment=true
+      - isDockerEnvironment=true
     depends_on:
       - storybook
 
