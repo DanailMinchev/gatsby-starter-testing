@@ -52,7 +52,7 @@
     "deploy:prod": "dotenv -- netlify deploy --prod --dir=public --functions=functions --message \"$(git log -1 --pretty=format:\"%h | %s\")\""
   },
   "dependencies": {
-    "gatsby": "2.32.3",
+    "gatsby": "2.32.8",
     "gatsby-image": "2.11.0",
     "gatsby-plugin-manifest": "2.12.0",
     "gatsby-plugin-offline": "3.10.0",
