@@ -28,7 +28,7 @@ describe(`404`, () => {
   it(`contains NOT FOUND text`, () => {
     render(<FourOFour />)
 
-    const element = screen.getByText(`NOT FOUND`)
+    const element = screen.getByText(`404: Not Found`)
     expect(element).toBeInTheDocument()
   })
 })

@@ -49,7 +49,7 @@ describe(`Using Typescript`, () => {
     expect(typeScriptLink).toBeInTheDocument()
     expect(typeScriptLink).toHaveAttribute(
       `href`,
-      `https://www.gatsbyjs.org/docs/typescript/`
+      `https://www.gatsbyjs.com/docs/typescript/`
     )
 
     const homepageLink = screen.getByText(/go back to the homepage/i)

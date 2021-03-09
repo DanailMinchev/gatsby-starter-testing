@@ -2,6 +2,7 @@ import { action } from "@storybook/addon-actions"
 
 export const parameters = {
   layout: "fullscreen",
+  actions: { argTypesRegex: "^on[A-Z].*" },
 }
 
 // Gatsby's Link overrides:
