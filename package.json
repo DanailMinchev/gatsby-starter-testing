@@ -70,7 +70,7 @@
     "@babel/core": "7.13.10",
     "@commitlint/cli": "12.0.1",
     "@commitlint/config-conventional": "12.0.1",
-    "@commitlint/prompt-cli": "12.0.1",
+    "@commitlint/prompt-cli": "12.1.1",
     "@storybook/addon-actions": "6.1.21",
     "@storybook/addon-essentials": "6.1.21",
     "@storybook/addon-links": "6.1.21",
