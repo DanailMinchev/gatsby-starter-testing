@@ -71,7 +71,7 @@
     "@commitlint/cli": "12.0.1",
     "@commitlint/config-conventional": "12.0.1",
     "@commitlint/prompt-cli": "12.0.1",
-    "@storybook/addon-actions": "6.1.21",
+    "@storybook/addon-actions": "6.2.4",
     "@storybook/addon-essentials": "6.1.21",
     "@storybook/addon-links": "6.1.21",
     "@storybook/addon-storysource": "6.1.21",
