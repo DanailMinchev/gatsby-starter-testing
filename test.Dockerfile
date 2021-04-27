@@ -1,4 +1,4 @@
-FROM cypress/included:7.1.0@sha256:aa311a332d9e12ba80c51507ba6577476fa45a3ae27bdde15c6ee021be58a8d5 AS test
+FROM cypress/included:7.2.0@sha256:46bbcda20a3e485d4e0f4cee26b951998a18b6ca4ac23c758c1ab1eb34f7a85e AS test
 
 EXPOSE 8000 9229 6006
 
