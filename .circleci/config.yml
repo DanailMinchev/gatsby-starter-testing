@@ -8,7 +8,7 @@ parameters:
 executors:
   default-docker-executor:
     docker:
-      - image: circleci/node:15.14.0-browsers
+      - image: circleci/node:14.16.1-browsers
 
 jobs:
   setup-job:
