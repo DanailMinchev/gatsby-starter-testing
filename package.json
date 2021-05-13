@@ -68,7 +68,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.14.0",
-    "@commitlint/cli": "12.1.1",
+    "@commitlint/cli": "12.1.4",
     "@commitlint/config-conventional": "12.1.1",
     "@commitlint/prompt-cli": "12.1.1",
     "@storybook/addon-actions": "6.2.9",
