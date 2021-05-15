@@ -15,6 +15,7 @@ module.exports = {
     `<rootDir>/stories`,
     `<rootDir>/storybook-static`,
     `__visual_tests__`,
+    `\\.yalc`,
   ],
   coveragePathIgnorePatterns: [
     `node_modules`,
@@ -25,6 +26,7 @@ module.exports = {
     `<rootDir>/stories`,
     `<rootDir>/storybook-static`,
     `__visual_tests__`,
+    `\\.yalc`,
   ],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
   globals: {
