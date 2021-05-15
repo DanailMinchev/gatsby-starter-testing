@@ -6,6 +6,7 @@
   "license": "MIT",
   "author": "Danail Minchev <danail.dev@gmail.com>",
   "scripts": {
+    "prepare": "npx husky install",
     "prebuild": "npm run clean",
     "build": "gatsby build",
     "develop": "gatsby develop --host 0.0.0.0 --port 8000",
@@ -104,12 +105,6 @@
     "react-test-renderer": "17.0.2",
     "semantic-release": "17.4.2",
     "start-server-and-test": "1.12.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "lint-staged": {
     "*.{js,jsx,json,md}": "prettier --write"
