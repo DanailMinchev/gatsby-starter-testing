@@ -83,7 +83,7 @@
     "@testing-library/react": "11.2.7",
     "@testing-library/user-event": "13.1.9",
     "axe-core": "4.2.1",
-    "babel-jest": "26.6.3",
+    "babel-jest": "27.0.1",
     "babel-loader": "8.2.2",
     "babel-preset-gatsby": "1.6.0",
     "babel-preset-react-app": "10.0.0",
