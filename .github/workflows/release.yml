@@ -28,6 +28,7 @@ jobs:
         with:
           name: coverage-16.x
           path: ${{ github.workspace }}/coverage/
+          retention-days: 1
       - name: Upload Test Coverage - Codecov
         if: ${{ always() }}
         uses: codecov/codecov-action@v1.5.0
@@ -43,12 +44,14 @@ jobs:
         with:
           name: cypress-videos-16.x
           path: ${{ github.workspace }}/cypress/videos/
+          retention-days: 1
       - name: Upload Test E2E Artifacts - cypress/screenshots/
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: cypress-screenshots-16.x
           path: ${{ github.workspace }}/cypress/screenshots/
+          retention-days: 1
       - name: Test Visual
         run: npm run test:visual:docker
       - name: Compress Test Visual Artifacts
@@ -61,11 +64,13 @@ jobs:
         with:
           name: tests-visual-job-artifacts-16.x.tar.bz2
           path: ${{ github.workspace }}/tests-visual-job-artifacts.tar.bz2
+          retention-days: 1
       - name: Upload Build Artifacts - public/
         uses: actions/upload-artifact@v2
         with:
           name: public-16.x
           path: ${{ github.workspace }}/public/
+          retention-days: 1
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

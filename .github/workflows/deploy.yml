@@ -41,6 +41,7 @@ jobs:
         with:
           name: public-16.x
           path: ${{ github.workspace }}/public/
+          retention-days: 1
   deploy:
     name: Deploy
     needs: build

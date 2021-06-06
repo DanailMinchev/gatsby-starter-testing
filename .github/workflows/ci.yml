@@ -46,6 +46,7 @@ jobs:
         with:
           name: coverage-${{ matrix.node-version }}
           path: ${{ github.workspace }}/coverage/
+          retention-days: 1
       - name: Upload Test Coverage - Codecov
         if: ${{ always() }}
         uses: codecov/codecov-action@v1.5.0
@@ -61,12 +62,14 @@ jobs:
         with:
           name: cypress-videos-${{ matrix.node-version }}
           path: ${{ github.workspace }}/cypress/videos/
+          retention-days: 1
       - name: Upload Test E2E Artifacts - cypress/screenshots/
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: cypress-screenshots-${{ matrix.node-version }}
           path: ${{ github.workspace }}/cypress/screenshots/
+          retention-days: 1
       - name: Test Visual
         run: npm run test:visual:docker
       - name: Compress Test Visual Artifacts
@@ -79,11 +82,13 @@ jobs:
         with:
           name: tests-visual-job-artifacts-${{ matrix.node-version }}.tar.bz2
           path: ${{ github.workspace }}/tests-visual-job-artifacts.tar.bz2
+          retention-days: 1
       - name: Upload Build Artifacts - public/
         uses: actions/upload-artifact@v2
         with:
           name: public-${{ matrix.node-version }}
           path: ${{ github.workspace }}/public/
+          retention-days: 1
   deploy:
     name: Deploy
     needs: build-and-test
