@@ -53,8 +53,8 @@
     "deploy:prod": "dotenv -- netlify deploy --prod --dir=public --functions=functions --message \"$(git log -1 --pretty=format:\"%h | %s\")\""
   },
   "dependencies": {
-    "gatsby": "3.6.0",
-    "gatsby-plugin-gatsby-cloud": "2.6.0",
+    "gatsby": "3.6.2",
+    "gatsby-plugin-gatsby-cloud": "2.6.1",
     "gatsby-plugin-image": "1.6.0",
     "gatsby-plugin-manifest": "3.6.0",
     "gatsby-plugin-offline": "4.6.0",
@@ -79,11 +79,11 @@
     "@storybook/addons": "6.2.9",
     "@storybook/react": "6.2.9",
     "@testing-library/cypress": "7.0.6",
-    "@testing-library/jest-dom": "5.12.0",
+    "@testing-library/jest-dom": "5.13.0",
     "@testing-library/react": "11.2.7",
     "@testing-library/user-event": "13.1.9",
-    "axe-core": "4.2.1",
-    "babel-jest": "26.6.3",
+    "axe-core": "4.2.2",
+    "babel-jest": "27.0.2",
     "babel-loader": "8.2.2",
     "babel-preset-gatsby": "1.6.0",
     "babel-preset-react-app": "10.0.0",
@@ -95,16 +95,16 @@
     "html-webpack-plugin": "5.3.1",
     "husky": "6.0.0",
     "identity-obj-proxy": "3.0.0",
-    "jest": "26.6.3",
+    "jest": "27.0.4",
     "jest-image-snapshot": "4.5.0",
-    "jest-puppeteer": "5.0.3",
+    "jest-puppeteer": "5.0.4",
     "lint-staged": "11.0.0",
-    "netlify-cli": "3.31.3",
-    "prettier": "2.3.0",
-    "puppeteer": "9.1.1",
+    "netlify-cli": "3.34.1",
+    "prettier": "2.3.1",
+    "puppeteer": "10.0.0",
     "react-test-renderer": "17.0.2",
     "semantic-release": "17.4.3",
-    "start-server-and-test": "1.12.3"
+    "start-server-and-test": "1.12.5"
   },
   "lint-staged": {
     "*.{js,jsx,json,md}": "prettier --write"
