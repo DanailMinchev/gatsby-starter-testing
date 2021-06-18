@@ -68,7 +68,6 @@ Kick off your project with this default boilerplate. This starter ships with con
     Use the Gatsby CLI to create a new site, specifying the starter.
 
     ```shell
-    # create a new Gatsby site using the testing starter
     npx gatsby new my-testing-starter https://github.com/DanailMinchev/gatsby-starter-testing
     ```
 
@@ -259,6 +258,12 @@ Kick off your project with this default boilerplate. This starter ships with con
 10. **Git Hooks.**
 
     This project is using git hooks which are configured with [Husky](https://github.com/typicode/husky).
+
+    To enable Git hooks, install Husky manually:
+
+    ```shell
+    npx husky install
+    ```
 
     **"pre-commit" git hook**
 
