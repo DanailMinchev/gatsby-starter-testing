@@ -6,7 +6,7 @@
   "license": "MIT",
   "author": "Danail Minchev <danail.dev@gmail.com>",
   "scripts": {
-    "prepare": "npx husky install",
+    "postinstall": "npx husky install",
     "prebuild": "npm run clean",
     "build": "gatsby build",
     "develop": "gatsby develop --host 0.0.0.0 --port 8000",

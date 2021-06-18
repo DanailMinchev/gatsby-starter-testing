@@ -69,7 +69,7 @@ Kick off your project with this default boilerplate. This starter ships with con
 
     ```shell
     # create a new Gatsby site using the testing starter
-    gatsby new my-testing-starter https://github.com/DanailMinchev/gatsby-starter-testing
+    npx gatsby new my-testing-starter https://github.com/DanailMinchev/gatsby-starter-testing
     ```
 
 2.  **Install dependencies.**
