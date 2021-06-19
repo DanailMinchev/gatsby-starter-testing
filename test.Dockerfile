@@ -14,7 +14,7 @@ FROM test AS cypress
 
 WORKDIR /opt/node_app
 COPY package.json package-lock.json ./
-RUN npm ci && npm cache clean --force
+RUN npm install --force && npm cache clean --force
 ENV PATH /opt/node_app/node_modules/.bin:$PATH
 
 WORKDIR /opt/node_app/app
@@ -28,7 +28,7 @@ FROM test as storybook
 WORKDIR /opt/node_app/app
 
 COPY package.json package-lock.json ./
-RUN npm ci && npm cache clean --force
+RUN npm install --force && npm cache clean --force
 ENV PATH /opt/node_app/app/node_modules/.bin:$PATH
 
 COPY . .
