@@ -308,7 +308,13 @@ Please see following articles:
 There are currently 3 GitHub Actions workflows:
 
 - [CI](./.github/workflows/ci.yml)
-  This workflow is acting as CI pipeline.
+  This workflow is acting as CI pipeline.<br />
+  It is using `main_build_environment` environment (needs to be created).
+
+- [Pull Request](./.github/workflows/pull-request.yml)
+  This workflow runs when a new Pull Request is created or modified. It is similar to `CI` workflow.<br />
+  It is using `pr_build_environment` environment (needs to be created).<br />
+  The `pr_build_environment` environment can be setup to have [required reviewers](https://docs.github.com/en/actions/reference/environments#required-reviewers), so that the build is not triggered automatically.
 
 - [Deploy](./.github/workflows/deploy.yml)
   This workflow can be used to deploy latest `master` branch or specific commit to Netlify. Use this to deploy to preview, uat, prod.

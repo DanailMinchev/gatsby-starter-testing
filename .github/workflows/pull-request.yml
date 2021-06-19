@@ -1,17 +1,9 @@
-name: CI
+name: Pull Request
 
 on:
-  workflow_dispatch:
-    inputs:
-      git-ref:
-        description: Git Ref (Optional)
-        required: false
-      upload-artifacts:
-        description: Upload Artifacts (yes, no)
-        required: true
-        default: 'no'
-  push:
+  pull_request:
     branches: [master]
+    types: [opened, edited, reopened, synchronize]
 
 defaults:
   run:
@@ -20,20 +12,14 @@ defaults:
 jobs:
   build-and-test:
     name: Build and Test
-    environment: main_build_environment
+    environment: pr_build_environment
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [14.x, 16.x]
     steps:
       - name: Checkout (Latest)
-        if: github.event.inputs.git-ref == ''
         uses: actions/checkout@v2.3.4
-      - name: Checkout (Custom Ref)
-        if: github.event.inputs.git-ref != ''
-        uses: actions/checkout@v2.3.4
-        with:
-          ref: ${{ github.event.inputs.git-ref }}
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2.1.5
         with:
@@ -97,13 +83,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (Latest)
-        if: github.event.inputs.git-ref == ''
         uses: actions/checkout@v2.3.4
-      - name: Checkout (Custom Ref)
-        if: github.event.inputs.git-ref != ''
-        uses: actions/checkout@v2.3.4
-        with:
-          ref: ${{ github.event.inputs.git-ref }}
       - name: Setup Node.js 16.x
         uses: actions/setup-node@v2.1.5
         with:
