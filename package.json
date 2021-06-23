@@ -91,7 +91,7 @@
     "cypress-axe": "0.12.2",
     "cypress-image-snapshot": "4.0.1",
     "dotenv-cli": "4.0.0",
-    "html-webpack-plugin": "5.3.1",
+    "html-webpack-plugin": "5.3.2",
     "husky": "6.0.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.0.4",
