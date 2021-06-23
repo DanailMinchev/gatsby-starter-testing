@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "gatsby": "3.7.2",
-    "gatsby-plugin-gatsby-cloud": "2.7.1",
+    "gatsby-plugin-gatsby-cloud": "2.8.1",
     "gatsby-plugin-image": "1.7.1",
     "gatsby-plugin-manifest": "3.7.1",
     "gatsby-plugin-offline": "4.7.1",
