@@ -68,7 +68,8 @@ Kick off your project with this default boilerplate. This starter ships with con
     Use the Gatsby CLI to create a new site, specifying the starter.
 
     ```shell
-    npx gatsby new my-testing-starter https://github.com/DanailMinchev/gatsby-starter-testing
+    npm install -g gatsby-cli
+    gatsby new my-testing-starter https://github.com/DanailMinchev/gatsby-starter-testing
     ```
 
 2.  **Install dependencies.**
