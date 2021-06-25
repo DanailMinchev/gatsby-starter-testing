@@ -72,6 +72,12 @@ Kick off your project with this default boilerplate. This starter ships with con
     gatsby new my-testing-starter https://github.com/DanailMinchev/gatsby-starter-testing
     ```
 
+    or
+
+    ```shell
+    npx --force gatsby new my-testing-starter https://github.com/DanailMinchev/gatsby-starter-testing
+    ```
+
 2.  **Install dependencies.**
 
     Navigate into your new site's directory and install dependencies.
@@ -430,6 +436,7 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── .dockerignore
     ├── .gitattributes
     ├── .gitignore
+    ├── .npmrc
     ├── .nvmrc
     ├── .prettierignore
     ├── .prettierrc
@@ -488,48 +495,50 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 17. **`.gitignore`**: This file tells [Git](https://git-scm.com/) which files it should not track / not maintain a version history for.
 
-18. **`.nvmrc`**: This file is used by [nvm](https://github.com/nvm-sh/nvm) to use the correct Node.js version for this application.
+18. **`.npmrc`**: This file is used by [npm](https://docs.npmjs.com/cli/v7/configuring-npm/npmrc) to set npm options.
 
-19. **`.prettierignore`**: This file tells [Prettier](https://prettier.io/) which files it should not format.
+19. **`.nvmrc`**: This file is used by [nvm](https://github.com/nvm-sh/nvm) to use the correct Node.js version for this application.
 
-20. **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+20. **`.prettierignore`**: This file tells [Prettier](https://prettier.io/) which files it should not format.
 
-21. **`app.Dockerfile`**: This file is used by [Docker](https://docs.docker.com/engine/reference/builder/) and defines the Docker image for the app.
+21. **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-22. **`CODE_OF_CONDUCT.md`**: "Contributor Code of Conduct" document.
+22. **`app.Dockerfile`**: This file is used by [Docker](https://docs.docker.com/engine/reference/builder/) and defines the Docker image for the app.
 
-23. **`commitlint.config.js`**: This is a configuration file for [commitlint](https://github.com/conventional-changelog/commitlint).
+23. **`CODE_OF_CONDUCT.md`**: "Contributor Code of Conduct" document.
 
-24. **`CONTRIBUTING.md`**: "Contributing" document.
+24. **`commitlint.config.js`**: This is a configuration file for [commitlint](https://github.com/conventional-changelog/commitlint).
 
-25. **`cypress.json`**: This is a configuration file for [Cypress](https://www.cypress.io/). More information can be found [here](https://docs.cypress.io/guides/references/configuration.html).
+25. **`CONTRIBUTING.md`**: "Contributing" document.
 
-26. **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+26. **`cypress.json`**: This is a configuration file for [Cypress](https://www.cypress.io/). More information can be found [here](https://docs.cypress.io/guides/references/configuration.html).
 
-27. **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you'd like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+27. **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
 
-28. **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+28. **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you'd like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
 
-29. **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+29. **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-30. **`jest.config.js`**: This is a configuration file for [Jest](https://jestjs.io/) and it is used when you run `npm run test` for `Unit Testing` and `Structural Testing`. More information can be found [here](https://www.gatsbyjs.org/docs/unit-testing/) and [here](https://jestjs.io/docs/en/configuration).
+30. **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
 
-31. **`jest.setup.js`**: This is a setup file for [Jest](https://jestjs.io/) that runs some code to configure or set up the testing framework before each test file in the suite while it is executed. More information can be found [here](https://jestjs.io/docs/en/configuration#setupfilesafterenv-array).
+31. **`jest.config.js`**: This is a configuration file for [Jest](https://jestjs.io/) and it is used when you run `npm run test` for `Unit Testing` and `Structural Testing`. More information can be found [here](https://www.gatsbyjs.org/docs/unit-testing/) and [here](https://jestjs.io/docs/en/configuration).
 
-32. **`jest.visual.config.js`**: This is a configuration file for [Jest](https://jestjs.io/) and it is used when you run `npm run test:visual` for `Automated Visual Testing`. More information can be found [here](https://www.gatsbyjs.org/docs/unit-testing/) and [here](https://jestjs.io/docs/en/configuration).
+32. **`jest.setup.js`**: This is a setup file for [Jest](https://jestjs.io/) that runs some code to configure or set up the testing framework before each test file in the suite while it is executed. More information can be found [here](https://jestjs.io/docs/en/configuration#setupfilesafterenv-array).
 
-33. **`jest-loadershim.js`**: This is a setup file for [Jest](https://jestjs.io/) and it is used to configure or set up the testing environment. More information can be found [here](https://jestjs.io/docs/en/configuration#setupfiles-array).
+33. **`jest.visual.config.js`**: This is a configuration file for [Jest](https://jestjs.io/) and it is used when you run `npm run test:visual` for `Automated Visual Testing`. More information can be found [here](https://www.gatsbyjs.org/docs/unit-testing/) and [here](https://jestjs.io/docs/en/configuration).
 
-34. **`jest-preprocess.js`**: This is a setup file for [Jest](https://jestjs.io/) that defines transformers. More information can be found [here](https://jestjs.io/docs/en/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object).
+34. **`jest-loadershim.js`**: This is a setup file for [Jest](https://jestjs.io/) and it is used to configure or set up the testing environment. More information can be found [here](https://jestjs.io/docs/en/configuration#setupfiles-array).
 
-35. **`jest-puppeteer.config.js`**: This is a configuration file for [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer) and it is used when you run `npm run test:visual` for `Automated Visual Testing`. More information can be found [here](https://storybook.js.org/docs/testing/automated-visual-testing/#example-using-puppeteer-and-jest).
+35. **`jest-preprocess.js`**: This is a setup file for [Jest](https://jestjs.io/) that defines transformers. More information can be found [here](https://jestjs.io/docs/en/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object).
 
-36. **`LICENSE`**: Gatsby is licensed under the MIT license.
+36. **`jest-puppeteer.config.js`**: This is a configuration file for [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer) and it is used when you run `npm run test:visual` for `Automated Visual Testing`. More information can be found [here](https://storybook.js.org/docs/testing/automated-visual-testing/#example-using-puppeteer-and-jest).
 
-37. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project's name, author, etc). This manifest is how npm knows which packages to install for your project.
+37. **`LICENSE`**: Gatsby is licensed under the MIT license.
 
-38. **`package-lock.json`** (See `package.json` above, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won't change this file directly).**
+38. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project's name, author, etc). This manifest is how npm knows which packages to install for your project.
 
-39. **`README.md`**: A text file containing useful reference information about your project.
+39. **`package-lock.json`** (See `package.json` above, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won't change this file directly).**
 
-40. **`test.Dockerfile`**: This file is used by [Docker](https://docs.docker.com/engine/reference/builder/) and defines the Docker image for `Automated Visual Testing`.
+40. **`README.md`**: A text file containing useful reference information about your project.
+
+41. **`test.Dockerfile`**: This file is used by [Docker](https://docs.docker.com/engine/reference/builder/) and defines the Docker image for `Automated Visual Testing`.
