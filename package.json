@@ -54,7 +54,7 @@
   "dependencies": {
     "dotenv-webpack": "7.0.3",
     "gatsby": "3.8.1",
-    "gatsby-plugin-gatsby-cloud": "2.8.1",
+    "gatsby-plugin-gatsby-cloud": "2.9.0",
     "gatsby-plugin-image": "1.8.0",
     "gatsby-plugin-manifest": "3.8.0",
     "gatsby-plugin-offline": "4.8.0",
