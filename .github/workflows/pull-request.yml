@@ -37,7 +37,7 @@ jobs:
           retention-days: 1
       - name: Upload Test Coverage - Codecov
         if: ${{ always() }}
-        uses: codecov/codecov-action@v2.0.2
+        uses: codecov/codecov-action@v2.0.3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Build
