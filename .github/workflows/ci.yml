@@ -44,7 +44,7 @@ jobs:
         run: npm test
       - name: Upload Test Artifacts - coverage/
         if: github.event.inputs.upload-artifacts == 'yes'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: coverage-${{ matrix.node-version }}
           path: ${{ github.workspace }}/coverage/
@@ -60,14 +60,14 @@ jobs:
         run: npm run test:e2e:docker
       - name: Upload Test E2E Artifacts - cypress/videos/
         if: github.event.inputs.upload-artifacts == 'yes'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-videos-${{ matrix.node-version }}
           path: ${{ github.workspace }}/cypress/videos/
           retention-days: 1
       - name: Upload Test E2E Artifacts - cypress/screenshots/
         if: github.event.inputs.upload-artifacts == 'yes'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-screenshots-${{ matrix.node-version }}
           path: ${{ github.workspace }}/cypress/screenshots/
@@ -80,13 +80,13 @@ jobs:
           find . -name '__diff_output__' | tar -cvjf tests-visual-job-artifacts.tar.bz2 --files-from -
       - name: Upload Test Visual Artifacts - tests-visual-job-artifacts.tar.bz2
         if: github.event.inputs.upload-artifacts == 'yes'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: tests-visual-job-artifacts-${{ matrix.node-version }}.tar.bz2
           path: ${{ github.workspace }}/tests-visual-job-artifacts.tar.bz2
           retention-days: 1
       - name: Upload Build Artifacts - public/
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: public-${{ matrix.node-version }}
           path: ${{ github.workspace }}/public/

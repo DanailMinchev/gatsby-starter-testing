@@ -37,7 +37,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Upload Build Artifacts - public/
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: public-16.x
           path: ${{ github.workspace }}/public/
