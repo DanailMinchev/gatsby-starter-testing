@@ -65,7 +65,7 @@ jobs:
         run: |
           mkdir -p ${{ github.workspace }}/public
       - name: Download Artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: public-16.x
           path: ${{ github.workspace }}/public
