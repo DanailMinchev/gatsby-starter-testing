@@ -1,4 +1,4 @@
-FROM node:16.6.2-buster@sha256:678cad87833f51615213547acb719e951569816db7bb0e2bb7da10cbfccc976c
+FROM node:18.5.0-buster@sha256:faabc01309c6524cd277f6068d546afe67360eacdd4f74a6e0c4f08df09fc138
 
 ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
