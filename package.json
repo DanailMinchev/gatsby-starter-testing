@@ -68,7 +68,7 @@
     "react-helmet": "6.1.0"
   },
   "devDependencies": {
-    "@babel/core": "7.15.0",
+    "@babel/core": "7.19.0",
     "@commitlint/cli": "13.1.0",
     "@commitlint/config-conventional": "13.1.0",
     "@commitlint/prompt-cli": "13.1.0",
